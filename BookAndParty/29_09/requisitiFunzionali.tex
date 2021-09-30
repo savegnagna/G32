@@ -1,0 +1,229 @@
+\chapter{Requisiti funzionali}
+In questa sezione vengono riportati i requisiti funzionali del sistema.
+
+\section*{Requisiti generali}
+L'applicazione \NameOfTheProject~ dovrà essere un app per smartphone.
+
+\noindent Il sistema deve avere due tipi di utente:
+\begin{itemize}
+    \item Non registrato
+    \item Registrato
+\end{itemize}
+
+\section{Requisiti condivisi}
+Sia l'utente \textbf{non registrato} che quello \textbf{registrato} hanno i seguenti requisiti:
+
+\subsection{Ricerca}\label{sec:ricerca}
+
+L'utente può effettuare una ricerca inserendo nel form di ricerca:
+\begin{itemize}
+    \item Luogo (città)
+    \item Data della prenotazione
+    \item Nr. di persone
+    \label{itm:ricerca}
+\end{itemize}
+
+\subsection{Visualizzazione dei locali} \label{sec:visLocali}
+L'utente, dopo aver effettuato la ricerca può visualizzare i locali con i requisiti scelti e il prezzo di ognuno di
+essi. Inoltre potrà applicare i seguenti filtri:
+\begin{itemize}
+    \item Tipologia/e del locale \footnote{sala, saletta, tavolo}
+    \item Quantità per tipologia \footnote{nr. di sale, salette, tavoli}
+    \item Nr. massimo di persone consentite
+    \item Zona aperta o chiusa
+    \item Presenza del servizio di catering
+    \item Presenza del dj
+    \item Presenza del impianto audio
+    \item Range di Prezzo
+    \label{itm:filtri}
+\end{itemize}
+
+\subsection{Visualizzazione del singolo locale} \label{sec:visLocale}
+L'utente può selezionare uno dei locali della lista per vedere in dettaglio la descrizione, le foto, i servizi e le
+valutazioni del locale.
+
+\section{Utente non registrato}
+L'utente \textbf{non registrato} oltre a poter fare ricerche (\ref{sec:ricerca}), visualizzare locali 
+(\ref{sec:visLocali}) e visualizzare nel dettaglio un locale (\ref{sec:visLocale}) potrà registrarsi.
+
+\subsection{Accesso}
+L'utente \textbf{non registrato} potrà accedere all'applicazione cliccando sulla scritta \textbf{Continua come ospite}
+(vedi \ref{fig:login}). L'utente salterà il login ed accederà come utente anonimo.
+
+
+\subsection{Registrazione}\label{sec:registrazione}
+L'utente \textbf{non registrato} può registrarsi usando il form registrazione inserendo:
+\begin{itemize}
+    \item Nome
+    \item Cognome
+    \item Data di nascita
+    \item Nr. di telefono
+    \item E-mail
+    \item Password
+    \item Conferma password
+    \label{itm:datiPersonali}
+\end{itemize}
+Finito l'inserimento dei dati dovrà premere il pulsante \textbf{Registrami}
+
+\section{Utente registrato}
+Il sistema deve avere tre tipi di utenti registrati:
+\begin{itemize}
+    \item Cliente
+    \item Locale
+    \item Gestore
+\end{itemize}
+
+\subsection{Login}
+L'\textbf{utente registrato} potrà fare login tramite l'apposito form, inserendo e-mail e password, e inviando la 
+richiesta premendo il pulsante \textbf{Accedi}.
+
+\subsection{Logout}
+L'\textbf{utente registrato} potrà fare logout tramite l'apposito pulsante (vedi \ref{fig:profiloCliente}), che si 
+trova nella sezione \textbf{Profilo}, il quale lo indirizzerà nella pagina di login (vedi \ref{fig:login}).
+
+
+\subsection{Recupero password} \label{sec:recPsw}
+Cliccando sulla scritta per il recupero password, il \textbf{cliente} riceverà una e-mail 
+(all'indirizzo già inserito), contenente un token da inserire nella finestra che si 
+aprirà nel app allo stesso tempo del click sulla scritta per il recupero password (vedi \ref{fig:login}).
+
+\section*{Cliente} \label{sec:cliente}
+L'utente \textbf{cliente} oltre a poter fare ricerche (\ref{sec:ricerca}), visualizzare locali 
+(\ref{sec:visLocali}) e visualizzare nel dettaglio un locale (\ref{sec:visLocale}) e potrà modificare il proprio
+account, effettuare prenotazioni, gestire prenotazioni e recensire il locale.
+
+\subsection{Gestione account}
+Il \textbf{cliente} può modificare le seguenti informazioni del proprio account:
+\begin{itemize}
+    \item Nome
+    \item Cognome
+    \item Data di nascita
+    \item Nr. di telefono
+    \item Password
+    \label{sec:gesAccountCliente}
+\end{itemize}
+Finite le modifiche dovrà premere il pulsante \textbf{Salva modifiche}
+
+\subsection{Prenotazione}
+Il \textbf{cliente} può effettuare la prenotazione del locale premendo sul pulsante \textbf{Prenota}, cosicchè verrà 
+reindirizzato a una pagina che mostra il riepilogo della prenotazione contente i seguenti campi:
+\begin{itemize}
+    \item Nome del locale
+    \item La data prenotata, \emph{selezionata al momento della ricerca}
+    \item L'ultimo giorno per disdire la prenotazione
+    \item Prezzo
+    \label{itm:recapPrenotazione}
+\end{itemize}
+Il \textbf{cliente}, verificando il riepilogo, può decidere se tornare indietro o proseguire con la prenotazione
+premendo il pulsante \textbf{Completa prenotazione} in cui verrà reindirizzato alla pagina di PayPal per il pagamento. 
+Terminato il pagamento, il \textbf{cliente} verrà reindirizzato a una pagina della sezione \textbf{prenotazioni}
+contenente le informazioni della prenotazione ricenvendo, tramite e-mail, la conferma della prenotazione stessa.
+
+\subsection{Gestione delle prenotazioni}
+Il \textbf{cliente} può vedere l'elenco delle prenotazioni effettuate e per ognuna di esse verificare le seguenti 
+informazioni:
+\begin{itemize}
+    \item Nr. di conferma
+    \item Nome della struttura
+    \item Data prenotata
+    \item Dati della struttura \begin{itemize}
+        \item Nr. di telefono
+        \item E-mail
+        \item Indirizzo stradale
+    \end{itemize}
+    \label{itm:prenotazione}
+\end{itemize}
+Inoltre, fino al giorno prenotato sarà possibile premere il pulsante \textbf{annulla prenotazione} per disdire la
+prenotazione, a condizione che se:
+\begin{itemize}
+    \item non si è superato il giorno per disdire la prenotazione, i soldi vengono rimborsati
+    \item si è superato il giorno per disdire la prenotazione, non si può richiedere il rimborso
+    \label{itm:cancPren}
+\end{itemize}
+
+\subsection{Valutazione del locale da parte del cliente}
+Il \textbf{cliente}, dopo il giorno della prenotatazione, nella sezione prenotazioni selezionando il locale, può lasciare una
+recensione e assegnare anche un voto da 1 a 10.
+
+\subsection{Registrazione locale} 
+Il \textbf{cliente}, andando nella sezione \textbf{profilo}, potrà premere sul pulsante \textbf{registra locale}
+per registrare un locale, inserendo nell'apposito form i seguenti dati del locale:
+\begin{itemize}
+    \item Nome
+    \item Indirizzo
+    \item Recapito telefonico
+    \item E-mail 
+    \item Password
+    \item Conferma password
+    \label{itm:datiLocale}
+\end{itemize}
+Finita l'operazione, l'utente \textbf{cliente} diverrà un utente \textbf{gestore}.
+
+\section*{Locale} \label{sec:locale}
+L'utente \textbf{locale} dovrà effettuare il login cosicchè potrà gestire funzioni specifiche dell'account (gestione tipologie), gestire
+le prenotazioni, valutare i clienti e visualizzare le valutazioni da parte dei clienti potendole commentare.
+
+\subsection{Gestione tipologie} \label{sec:gestTipo}
+Il \textbf{locale}, nella sezione profilo, può apportare modifiche, aggiunte o rimozioni di tipologie del locale.
+Per ogni aggiunta di tipologia dovrà specifare i seguenti valori:
+\begin{itemize}
+    \item Quantità
+    \item Date disponibili
+    \item Nr. massimo di persone
+    \item Costo
+    \item Zona aperta/chiusa
+    \item Foto
+    \item Servizi:
+    \begin{itemize}
+        \item Catering
+        \item DJ
+        \item Impianto audio
+    \end{itemize}
+    \item Prezzo per ogni servizio 
+    \label{itm:infoLocale}
+\end{itemize}
+Inoltre, potrà modificare ogni singola tipologia contenente i valori sopraindicati oppure potrà cancellare le singole
+tipologie, tranne quelle inserite dal \textbf{gestore}. 
+
+\subsection{Gestione prenotazioni}
+Il \textbf{locale} potrà visualizzare ogni singola prenotazione, riportate nella sezione prenotazioni, verificando le
+seguenti informazioni:
+\begin{itemize}
+    \item Numero di conferma
+    \item Data prenotata
+    \item Nr. di persone
+    \item Tipologia
+    \item Quantità tipologia
+    \item Dati del cliente:
+    \begin{itemize}
+        \item Nome e cognome
+        \item Nr. di telefono
+        \item E-mail
+        \item Valutazione (vedi \ref{sec:valCliente})
+    \end{itemize}
+\end{itemize}
+
+\subsection{Valutazione cliente} \label{sec:valCliente}
+Il \textbf{locale} potrà assegnare un voto da 1 a 10 ad ogni singolo cliente dopo il giorno della prenotatazione. Tale valutazione
+sarà visibile solo agli utenti \textbf{locale}.
+
+\subsection{Recensione locale} \label{sec:valCliente}
+Il \textbf{locale} potrà vedere e commentare, nella sezione \textbf{recensioni}, ogni recensione ricevuta da i
+\textbf{clienti}.
+
+\section*{Gestore}
+Il \textbf{gestore} è un multi-utente, quindi avrà le stesse funzionalità di un \textbf{cliente} (vedi 
+\ref{sec:cliente}) e potrà gestire uno o più \textbf{locali} (vedi \ref{sec:locale}). Andando sempre nella sezione profilo,
+come per il \textbf{cliente}, il \textbf{gestore} potrà registrare nuovi locali. Oltre ciò, potrà modificare o
+cancellare per completo un locale.
+
+\subsection{Gestione locale} 
+Il \textbf{gestore}, sempre nella sezione \textbf{gestione locali}, oltre a poter gestire i locali come in
+\ref{sec:gestTipo}, potrà apportare le seguenti modifiche al singolo locale:
+\begin{itemize}
+    \item Nome
+    \item Recapito telefonico
+    \item Password
+\end{itemize}
+Il \textbf{gestore} può modificare ed elimanere tutte le tipologie che un locale possiede. Inoltre sarà l'unico a poter
+cancellare il singolo locale, premendo sul pulsante \textbf{cancella locale}.

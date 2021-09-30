@@ -1,0 +1,86 @@
+\chapter{Obiettivi di progettazione del app \NameOfTheProject}
+
+\section*{Scopo del documento}
+Questo documento ha lo scopo di descrivere e spiegare come l'applicazione mobile \NameOfTheProject~ dovrà essere
+implementata. Il documento è diviso in diverse parti: la prima \textbf{obiettivi} del progetto spiegata quale sono
+le necessita che questa applicazione andrà a soddisfare con una descrizione esaustiva del suo funzionamento, la 
+seconda è una descrizione di tutti i requisiti che l'applicazione deve soddisfare, l'ultima parte riguarda il 
+front-end e il back-end
+
+\section{Obiettivi del progetto}
+L'applicazione \NameOfTheProject~ sarà compatibile con la più vasta gamma di dispositivi mobili Android e iOS. Il 
+funzionamento dell' applicazione prevede questi utenti:
+\begin{itemize}
+    \item Non registrato 
+    \item Registrato: \begin{itemize}
+        \item Cliente
+        \item Gestore
+        \item Locale
+    \end{itemize}
+\end{itemize}
+
+\section{Utente non registrato}
+
+Dalla prima apertura dell'applicazione l'utente sarà considerato \textbf{utente non registrato} e, se vorrà, potrà
+registrarsi, attraverso un form, inserendo i valori della lista \ref{itm:datiPersonali}.
+La registrazione poi dovrà essere confermata con un link invato via e-mail e così l'utente diverrà un 
+\textbf{utente registrato cliente}.
+
+L'utente, se non vorrà registrarsi, potrà comunque effettuare ricerche, definite in \ref{itm:ricerca}, 
+potendo poi visualizare i locali nel dettaglio cliccando sopra uno dei risultati, come spiegato nei requisiti 
+\ref{sec:visLocali} e \ref{sec:visLocale}.
+
+\section{Utente registrato}
+L'utente registrato si differenzia in 3 categorie:  \textbf{cliente}, \textbf{gestore} e \textbf{locale}.
+
+Tutti gli \textbf{utenti registrati} potranno fare login inserendo username/email e password.
+
+\subsection{Cliente}
+
+Il \textbf{cliente}, come l'\textbf{utente non registrato}, potrà effettuare ricerche visualizzando poi
+i locali nel dettaglio.
+Dopo la ricerca, potrà effettuare una prenotazione, premendo sul apposito pulsante verrà trasferito ad una finestra
+di riepilogo \ref{itm:recapPrenotazione}. 
+Una volta eseguita la prenotazione sarà possibile gestirla e visualizare le sue informazioni \ref{itm:prenotazione} 
+nella sezione \textbf{prenotazioni}. Tutte le prenotazioni effettuate saranno disponibili in questa sezione. Per 
+ciascuna preno-tazione passata è possibile lasciare una recensione e una valutazione da 1 a 10, invece sarà possibile
+annullare quelle future. 
+
+Andando sulla sezione \textbf{profilo}, il \textbf{cliente} potrà selezionare l'elemento \textbf{gestisci 
+account} per modificare i suoi dati, oppure selezionare \textbf{registra locale} per registrare un locale. Se verrà
+sottoscritto un locale l'utente passerà da \textbf{cliente} a \textbf{gestore}
+\ref{sec:gesAccountCliente}. 
+
+%Spiegazione del URG
+\subsection{Gestore}
+Il \textbf{gestore} ha tutte le funzionalità di un \textbf{cliente} con l'aggiunta di poter gestire e registrare 
+uno o più locali nelle apposite sezioni.
+
+La registrazione del locale avviene attraverso un form, simile a quello per la registrazione di un utente, con i 
+valori della lista \ref{itm:datiLocale}. Sarà possibile aggiungere più di un immagine.
+
+Successivamente riceverà una mail con un link per confermare la registrazione. Una volta confermato gli verrà 
+permesso di aggiungere i dati detagliati del locale (vedi \ref{itm:infoLocale})
+
+Il locale da quel momento sarà nel sistema ma non sarà visibile fino alla conferma dell'indirizzo del locale. Per
+confermare l'indirizzo, il \textbf{gestore} dovrà attendere fino all'arrivo, tramite posta all'indirizzo
+del locale, della lettera contenente un codice verifica alfanumerico. Tale codice dovrà essere inserito nell'apposita
+casella che comparirà nella pagina del locale specifico il quale si trova nella sezione \textbf{gestisci locale}
+
+Inoltre il \textbf{gestore} potrà apportare modifiche o cancellare ogni suo singolo locale.
+
+%La modificare e il recupero della password verrano desctie nel dettaglio nei requisiti funcionali.
+
+%Spiegazione del URL
+\subsection{Locale}
+
+Il \textbf{locale} è un utente generato dalla registrazione da parte del \textbf{gestore}. Viene
+generato cosicchè possa essere utilizzato dai dipendenti del locale stesso, senza che il gestore dia i propri dati
+d'accesso ma solo quelli del \textbf{locale}. Tale account ha i permessi per gestire le prenotazioni, ovvero vedere
+il numero di prenotazioni correnti con i dati degli utenti prenotati, potrà anche annullarle in qualsiasi momento,
+rimborsando completamente il cliente, valutare ogni singolo cliente (dopo il giorno prenotato) e vedere le recensioni
+lasciate dai clienti potendole commentare.
+Gli sarà possibile aggiungere e modificare tipologie del locale (vedi lista \ref{itm:infoLocale}). La cancellazione
+delle tipologie sarà possibile solo per quelle inserite dal \textbf{locale} e non sarà possibile modificare o 
+cancellare quelle create dal \textbf{gestore}.
+

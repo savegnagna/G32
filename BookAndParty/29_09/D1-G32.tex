@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+
+\usepackage{bookmark}
+\usepackage[italian.english]{babel}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\usepackage{glossaries}
+\usepackage{cleveref}
+
+\include{glossarydef}
+
+\begin{document}
+
+\include{titlepage}
+
+\tableofcontents
+
+\include{obiettivi}
+
+\include{requisitiFunzionali}
+
+\include{requisitiNonFunzionali}
+
+\include{frontend}
+
+\include{backend}
+
+\end{document}
