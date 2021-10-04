@@ -1,0 +1,78 @@
+\chapter{Backend}
+Per il corretto funzionamento dell'applicazione è fondamentale che l'interfaccia con il DB 
+contenga sia i dati degli utenti sia i dati “locali”. particolarmente importante sono i privilegi
+che ogni utente ha sul DB. Fondamentale  è la possibilità di interfacciarsi con API di paypal per 
+i pagamenti.
+
+\section{Registrazione, modifica dati e pagamento}
+\subsection{PayPal}
+Utilizzando l’api di paypal dovrà essere possibile eseguire le transazioni tra cliente e locale, 
+l’indirizzo e-mail di riferimento per il pagamento sarà quello del locale.
+
+\subsection{SMTP}
+Dovrà essere creato un server SMTP per gestire le e-mail inviate in caso di annullamento delle 
+prenotazioni, il server SMTP dovrà avere un solo indirizzo e-mail no-replay@bookandparty.it.
+
+\subsection{Calendario}
+Oppure dovrà essere prevista nel applicazione l'utilizzo di un api per gestire le prenotazioni 
+attraverso Google Calendar.
+
+\section{Communicazione col dispositivo}
+L'applicazione dovrà essere in grado di interfacciarsi con il sistema operativo per:
+\begin{itemize}
+    \item Salvare le credenziali d'accesso.
+    \item Verificare se il dispositivo è in light o dark mode.
+    \item Gestire richieste per apertura di una pagina web PayPal per effettuare il pagamento. 
+\end{itemize}
+
+\section{Utenti}
+
+\subsection{Non registrato}
+\begin{itemize}
+    \item Dovrà essere in grado di eseguire ricerche e ricevere i dati dal DB.
+    \item Deve poter registrare il proprio account, attraverso i dati del form 
+    \ref{itm:datiPersonali} che saranno inseriti seguendo la struttura del DB.
+    \item Potrà accedere all'account con le proprie credenziali, attraverso un processo di 
+    verifica sicuro con il DB.
+\end{itemize}
+
+\subsection{Cliente}
+\begin{itemize}
+    \item Dovrà essere in grado di eseguire ricerche e ricevere i dati pubblici relativi ai 
+    locali .
+    \item Deve essere in grado di cambiare i dati inseriti al momento della registrazione 
+    esclusa \textcolor{red}{l}'e-mail che rimarrà fissa per tutta la durata della vita del account.
+    \item Gli sarà possibile usare l’api di PayPal per eseguire pagamenti.
+    \item Il cliente deve poter vedere i commenti lasciati sul locale, ma non gli sarà possibile 
+    vedere i commenti del locale su di lui, interfacciandosi con il DB.
+    \item Il cliente dovrà essere in grado di lasciare commenti sul locale che andranno salvati 
+    nel DB.
+    \item Sarà possibile recuperare dal DB i dati riguardanti le sue prenotazioni.
+    \item Potrà cancellare le prenotazioni come indicato nella \ref{itm:cancPren}
+\end{itemize}
+
+\subsection{Locale}
+\begin{itemize}
+    \item Deve essere in grado di aggiungere tipologie nuove del locale. Tali dati andranno 
+    salvati sul DB.
+    \item Deve essere in grado di cambiare e/o elimanare i dati sul DB relativi solo alle 
+    tipologie create personalmente.
+    \item Il locale deve poter vedere le valutazioni (lasciati da altri utenti \textbf{locale} 
+    sul cliente prenotante, e gli sarà possibile vedere i commenti del cliente, interfacciandosi 
+    con il DB.
+    \item Il locale dovrà essere in grado di lasciare una valutazione sul cliente che andrà 
+    salvata nel DB. Tale valutazione sarà visibile solo ad altri utenti \textbf{locale}.
+    \item Al momento dell'annullamento di una prenotazione, dovrà essere rimborsato il pagamento 
+    attraverso l’api di Paypal.
+    \item Al momento dell'annullamento di una prenotazione dovrà essere inviata un'email,
+    dall'indirizzo no-replay@bookandparty.it, per la communicazione della disdetta.
+\end{itemize}
+
+\subsection{Gestore}
+\begin{itemize}    
+    \item Valgono tutti quelli detti per cliente
+    \item Sarà in grado di creare nuovi utenti “locali”, con relativa email e password che 
+    verranno aggiunti al DB.
+    \item Potrà gestire i locali cambiando tutti i dati sul DB relativi all'accesso (tranne 
+    l’e-mail. Vedi \ref{itm:datiLocale}) e sulla descrizione del locale.
+\end{itemize}

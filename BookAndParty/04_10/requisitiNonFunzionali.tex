@@ -1,0 +1,65 @@
+\chapter{Requisiti non funzionali}
+In questa sezione vengono riportati i requisiti non funzionali del sistema.
+
+\section{Sicurezza}
+L'applicazione deve crittografare, tramite l'algoritmo AES, i dati di login dell'u-tente. Tali dati saranno salvati in
+un database sicuro.
+
+\section{Privacy}
+L'applicazione deve essere conforme al Regolamento europeo per la protezione dei dati (GDPR).
+
+\section{Compatibilita} 
+L'applicazione deve essere compatibile sia con iOS 12.0 che Android 7.0 o superiori.
+
+\section{Localizzazione} 
+L'applicazione dovrà essere disponibile solo per l'Italia.
+
+\section{Lingua di sistema} 
+L'applicazione dovrà essere sia in lingua italiana che in quella inglese.
+
+\section{Scalabilità} \label{sec:scalab}
+L'applicazione deve supportare un numero minimo \textcolor{red}{di} mille utenti (registrati e non) simultaneamente e, all'inizio, un 
+massimo di registrazioni di 10 mila utenti.
+
+\section{Operatività} 
+L'applicazione deve essere sempre disponibile, esclusi problemi dovuti all'infras-truttura dell'applicazione.
+
+\section{Usabilità} 
+L'applicazione deve avere un'interfaccia responsiva seguendo le caratteristiche del dispositivo. 
+Il design non deve comprendere elementi grafici esterni all'azione eseguibile su quella determinata pagina.
+Deve esssere intuitiva per l'utente avvezzo ad altre app. 
+Ogni utente dovrà essere in grado di utilizzare l'app nella sua interezza senza il bisogno di una guida e non oltre
+i 2 tentativi. 
+Il design dell'app si inspirerà al Google Material Theme Design.
+
+\section{Memorizzazione} 
+L'applicazione deve poter memorizzare solo i dati di login, ma avrà salvato nel database i dati di
+ogni singolo utente.
+
+\section{Prestazioni} \label{sec:prestazioni}
+\begin{itemize}
+    \item L'applicazione deve essere responsiva, ovvero per ogni azione che l'utente com-pie il tempo di attesa non deve essere
+    superiore ai 2 secondi.
+
+    \item Il sistema inoltre, dopo che un \textbf{cliente} ha effettuato una prenotazione, deve essere in grado di aggiornare il
+    numero di locali/tipologie disponibili in un tempo massimo 1 secondo.
+
+    \item Nell'evento in cui due utenti guardino lo stesso locale, ed il primo utente prenoti tutti i posti o ne prenoti a 
+    sufficienza per cui il secondo utente non possa eseguire la sua prenotazione, sarà necessario che al momento della 
+    tentata prenotazione il secondo utente riceva una notifica toast informandolo della non disponibilità. Mentre la notifica 
+    è ancora a schermo i dati relativi al locale dovranno essere aggiornati e alla prossima ricerca con gli stessi parametri 
+    il locale non dev'essere più visibile.
+
+    \item \textcolor{red}{Nel caso in cui il \textbf{gestore} cancelli il proprio account o quello del locale bisognerà fare il 
+    rimborso a tutti quelli che hanno prenotato.}
+
+    \item \textcolor{red}{Nel caso in cui venga modificata o cancellata una tipologia già prenotata il sistema dovrà inviare al cliente una mail per 
+    avvisarlo della modifica/cancellazione apportata e gli verrà rimborsato l'intero importo in caso di cancellazione, la cifra in 
+    eccesso se il prezzo è diminuito invece se è aumentato il cliente non dovrà pagare ulteriormente.}
+\end{itemize} 
+
+\section{Conferma registrazione}
+\begin{itemize}
+    \item L'utente riceverà una mail con un link per confermare la registrazione all'applicazione.
+    \item Il gestore riceverà una lettera tramite posta per confermare la registrazione del locale all'applicazione.
+\end{itemize}
